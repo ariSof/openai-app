@@ -1,5 +1,6 @@
 .App {
-  text-align: center;
+  align-items: center;
+  margin: 100px;
 }
 
 .App-logo {
@@ -35,4 +36,56 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+textarea {
+  font-size: 16px;
+  line-height: 24px;
+  size:550px;
+  color: #353740;
+  font-family: "ColfaxAI", Helvetica, sans-serif;
+  margin-bottom:20px;
+  align-items: center;
+}
+
+h1{
+  padding-left:150px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  width: 550px;
+  height: 200px;
+  padding-left: 150px;
+}
+
+input[type="submit"] {
+  padding: 12px 0;
+  color: #fff;
+  background-color: #10a37f;
+  border: none;
+  border-radius: 4px;
+  text-align: center;
+  cursor: pointer;
+}
+
+div#resultDiv{
+  font-weight: bold;
+  margin-left:100px;
+  margin-right:100px;
+  background-color: #d1d2d5;
+}
+
+#resultDiv
+ul > li
+{
+    list-style-type: none;
+    padding-right: 30px;
+    margin-top:10px;
+}
+
+result {
+  font-weight: bold;
+  margin-top: 40px;
 }
