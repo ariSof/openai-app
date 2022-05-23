@@ -4,16 +4,14 @@ import styles from "./App.css";
 
 import secret from './constant_sample.js';
 const API_key = secret.OPENAI_SECRET;
-var postedResponse = "";
 
 function App() {
   const [promptInput, setPromptInput] = useState("");
-  const [result, setResult] = useState("");
   const [display, setDisplay] = useState([]);
   
   const addDisplayItem = (thePrompt, theResult) => {
       const prevState = display;
-      setDisplay([...prevState, 'Prompt: '+ thePrompt + ' ___ Result:' + theResult]);
+      setDisplay(['Prompt: '+ thePrompt + ' ___ Result:' + theResult, ...prevState]);
   }
 
   async function onSubmit(event) {
@@ -41,9 +39,7 @@ function App() {
     const newData = await response.json();
     const thePrompt = data.prompt;
     const theResult = newData.choices[0].text;
-    postedResponse = '  Prompt: ' + data.prompt +   '     Response:' + newData.choices[0].text + postedResponse;
    
-    setResult(postedResponse);
     setPromptInput("");
     addDisplayItem(thePrompt, theResult);
   }
