@@ -8,10 +8,15 @@ const API_key = secret.OPENAI_SECRET;
 function App() {
   const [promptInput, setPromptInput] = useState("");
   const [display, setDisplay] = useState([]);
+  const [engine, setEngine] = useState("text-curie-001");
   
   const addDisplayItem = (thePrompt, theResult) => {
       const prevState = display;
       setDisplay(['Prompt: '+ thePrompt + ' ___ Result:' + theResult, ...prevState]);
+  }
+
+  const changeEngine = (event) => {
+    setEngine(event.target.value)
   }
 
   async function onSubmit(event) {
@@ -27,7 +32,7 @@ function App() {
      };
 
     const auth = 'Bearer '+ API_key;
-    const response = await fetch("https://api.openai.com/v1/engines/text-curie-001/completions", {
+    const response = await fetch("https://api.openai.com/v1/engines/"+engine+"/completions", {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -57,6 +62,14 @@ function App() {
           value={promptInput}
           onChange={(e) => setPromptInput(e.target.value)}
         ></textarea>
+
+        <h3>Select an Engine:</h3>
+        <select value={engine} onChange={changeEngine}>
+          <option value="text-davinci-002">text-davinci-002</option>
+          <option value="text-curie-001">text-curie-001</option>
+          <option value="text-babbage-001">text-babbage-001</option>
+          <option value="text-ada-001">text-ada-001</option>
+        </select>
     
         <input type="submit" value="Submit" />
       </form>
