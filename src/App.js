@@ -2,7 +2,7 @@ import { useState } from 'react';
 import styles from "./App.css";
 
 
-import secret from './constant.js';
+import secret from './constant_sample.js';
 const API_key = secret.OPENAI_SECRET;
 var postedResponse = "";
 
